@@ -6,7 +6,7 @@ var Enemy = function(posicaoInimigoX, posicaoInimigoY, velocidadeBug)
 	this.posicaoInimigoX = posicaoInimigoX;
 	this.posicaoInimigoY = posicaoInimigoY;
 	this.velocidadeBug = velocidadeBug;
-  this.sprite = 'images/enemy-bug.png';
+	this.sprite = 'images/enemy-bug.png';
 };
 
 // Responsável por identificar a colisão do jogador com os inimigos

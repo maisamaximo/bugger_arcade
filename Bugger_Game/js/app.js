@@ -1,4 +1,6 @@
-//ENEMY
+//"use strict"; Tentei utilizar porem começou a quebrar coisas no engine.js e fiquei meio perdida no que exatamente deveria ser alterado para que voltasse a funciona
+
+//ENEMY - propriedades do inimigo
 var Enemy = function(posicaoInimigoX, posicaoInimigoY, velocidadeBug)
 {
 	this.posicaoInimigoX = posicaoInimigoX;
@@ -7,6 +9,7 @@ var Enemy = function(posicaoInimigoX, posicaoInimigoY, velocidadeBug)
   this.sprite = 'images/enemy-bug.png';
 };
 
+// Responsável por identificar a colisão do jogador com os inimigos
 Enemy.prototype.update = function(dt) {
 
 	this.posicaoInimigoX += this.velocidadeBug * dt;
@@ -25,11 +28,12 @@ Enemy.prototype.update = function(dt) {
     };
 };
 
+// Desenha inimigo na tela
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.posicaoInimigoX, this.posicaoInimigoY);
 };
 
-//PLAYER
+//PLAYER - propriedades do jogador
 var Player = function (posicaoJogadorX, posicaoJogadorY) {
 
 		this.posicaoJogadorX = posicaoJogadorX;
@@ -40,16 +44,18 @@ var Player = function (posicaoJogadorX, posicaoJogadorY) {
  Player.prototype.update = function (dt) {
  };
 
+// Responsavel por desenhar o jogador
 Player.prototype.render = function () {
     ctx.drawImage(Resources.get(this.player), this.posicaoJogadorX, this.posicaoJogadorY);
 };
 
+// Limitações de jogador e inimigo na tela
 Player.prototype.handleInput = function (keyPress) {
 	 if (keyPress == 'left' && this.posicaoJogadorX > 0) {
         this.posicaoJogadorX -= 92;
     };
 
-	 if (keyPress == 'right' && this.posicaoJogadorX < 405) {
+	 if (keyPress == 'right' && this.posicaoJogadorX < 300) {
         this.posicaoJogadorX += 92;
     };
 	 if (keyPress == 'up' && this.posicaoJogadorY > 0) {
@@ -72,7 +78,7 @@ var allEnemies = [];
 
 var enemyLocation = [63, 147, 230];
 
-enemyLocation.forEach(function (locationY) {
+enemyLocation.forEach(function (locationY, enemy) {
     enemy = new Enemy(0, locationY, 250);
     allEnemies.push(enemy);
 });

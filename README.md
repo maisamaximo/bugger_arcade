@@ -1,4 +1,6 @@
 # Aracade Game
+<img src="profile.png">
+
 Este jogo é uma representação adaptada do fliperama "Frogger".
 
 DIVIRTA-SE!
